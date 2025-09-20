@@ -3,7 +3,7 @@ def check_balance(text):
     closed = ")]}"
     pairs = {')': '(', ']': '[', '}': '{'}
 
-    stack = Stack()
+    stack = Stack() # type: ignore
     count = 0
 
     # Tää oli kyllä aivan järkyttävää
