@@ -95,17 +95,24 @@ def BFS(graph, start):
     Perform Breadth-First Search of the graph starting from Vertex u.
     """
 
-  
-    neighbours = {start: None}
+    discovered = {start: None}
+
+    level = [start]
     
-    for i in graph.get_adjacent_vertices(start):
-        print(i)
-        neighbours[i] = start
-    
-    
-    
-        
-    return neighbours
+    while level:
+
+        next_level = []
+
+        for i in level:
+
+            for j in graph.get_adjacent_vertices(i):
+                if j not in discovered:
+                    discovered[j] = i
+                    next_level.append(j)
+
+        level = next_level
+    return discovered
+
         
 
     
